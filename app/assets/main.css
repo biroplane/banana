@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@font-face{
+  font-family: 'Gyparody';
+  src: url('~/assets/fonts/gyparody_regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Gyparody';
+  src: url('~/assets/fonts/gyparody_heavy.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@theme{
+  --font-heading: 'Bebas Neue', sans-serif;
+}
+
