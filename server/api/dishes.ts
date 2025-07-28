@@ -2,7 +2,7 @@ import Airtable from 'airtable';
 
 export default defineEventHandler(async (_event) => {
   const config = useRuntimeConfig();
-  const AIRTABLE_API_TOKEN = config.AIRTABLE_API_TOKEN || config.public.AIRTABLE_API_TOKEN;
+  const AIRTABLE_API_TOKEN = config.AIRTABLE_API_TOKEN;
   const AIRTABLE_BASE = config.AIRTABLE_BASE || config.public.AIRTABLE_BASE;
   const AIRTABLE_TABLE = 'Banana';
 

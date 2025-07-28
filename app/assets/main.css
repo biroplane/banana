@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
-@font-face{
-  font-family: 'Gyparody';
-  src: url('~/assets/fonts/gyparody_regular.ttf') format('ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face{
-  font-family: 'Gyparody';
-  src: url('~/assets/fonts/gyparody_heavy.ttf') format('ttf');
-  font-weight: bold;
-  font-style: normal;
-}
-
 @theme{
-  --font-heading: 'Bebas Neue', sans-serif;
+  --font-heading: 'gyparody','Bebas Neue', sans-serif;
+
+  --color-primary: oklch(89.41% 0.172 95.45);
+  --color-primary-50: oklch(98.69% 0.021 95.24);
+  --color-primary-100: oklch(97.59% 0.045 97.52);
+  --color-primary-200: oklch(95.16% 0.086 97.02);
+  --color-primary-300: oklch(93.13% 0.123 97.24);
+  --color-primary-400: oklch(91.07% 0.153 96.47);
+  --color-primary-500: oklch(89.41% 0.172 95.45);
+  --color-primary-600: oklch(84.75% 0.173 92.34);
+  --color-primary-700: oklch(68.45% 0.14 92.59);
+  --color-primary-800: oklch(50.99% 0.105 93.79);
+  --color-primary-900: oklch(31.97% 0.066 95.56);
+  --color-primary-950: oklch(21.42% 0.044 97.08);
+
 }
 
+body{
+  @apply bg-primary text-neutral-900 font-sans;
+}

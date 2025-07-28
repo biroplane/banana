@@ -11,7 +11,7 @@ const formattedPrice = computed(()=>{
 })
 </script>
 <template>
-  <div class="w-full md:w-64 h-full p-4 bg-primary shadow-lg border border-neutral-300 rounded-md">
+  <div class="w-full md:w-64 h-full p-4 bg-primary shadow-lg border border-primary-300 rounded-md">
   <div class="flex justify-between">
     <h2 class="font-bold flex-grow text-balance">{{ dish.name }}</h2>
     <p class="flex-none">{{ formattedPrice }}</p>

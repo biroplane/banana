@@ -22,10 +22,10 @@ export default defineNuxtConfig({
     ]
   },
   runtimeConfig: {
+    AIRTABLE_API_TOKEN: process.env.AIRTABLE_API_TOKEN,
     public: {
       AIRTABLE_URL: process.env.AIRTABLE_URL,
       AIRTABLE_BASE: process.env.AIRTABLE_BASE,
-      AIRTABLE_API_TOKEN: process.env.AIRTABLE_API_TOKEN
     }
   },
 
