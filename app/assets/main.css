@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme{
-  --font-heading: 'gyparody','Bebas Neue', sans-serif;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-head: 'Gyparody', sans-serif;
 
   --color-primary: oklch(89.41% 0.172 95.45);
   --color-primary-50: oklch(98.69% 0.021 95.24);

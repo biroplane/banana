@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  debug: true,
+  ssr: true,
   app: {
     head: {
       link: [{
@@ -11,14 +13,14 @@ export default defineNuxtConfig({
       }]
     }
   },
-  css: ['~/assets/main.css'],
+  css: ['~/assets/typography.css', '~/assets/main.css'],
   fonts: {
     defaults: {
       weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     },
     families: [
-      { name: "Bebas neue", provider: "google" },
-      { name: "gyparody", provider: "adobe" },
+      { name: "Bebas Neue", provider: "google" },
+      { name: "gyparody", provider: "local" },
     ]
   },
   runtimeConfig: {
@@ -34,7 +36,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@pinia/nuxt'
   ],
   vite: {
     plugins: [tailwindcss()]
