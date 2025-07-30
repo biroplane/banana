@@ -64,10 +64,10 @@ onMounted(()=>{
   </ul>
   <ul class="mt-8 font-heading">
     <li class="font-bold text-3xl">Info utili</li>
-    <li v-for="(conf,c) in config" :key="c" class="flex font-[300] text-xl gap-2">
-    <dt v-if="conf.key">{{ conf.key }} :</dt>
+    <li v-for="(conf,c) in config" :key="c" class="flex items-baseline font-[300]  gap-2">
+    <dt v-if="conf.key" class="text-xl">{{ conf.key }} :</dt>
 
-    <dl :class="{'mt-8':!conf.key}" class="font-bold">{{ conf.value }}</dl>
+    <dl :class="{'mt-8':!conf.key}" class="font-medium font-sans">{{ conf.value }}</dl>
 </li>
   </ul>
   </div>
