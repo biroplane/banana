@@ -3,18 +3,17 @@
 const dishes = useState('dishes')
 const config = useState<any>('config')
 const timeout = 12*60*60*1000 // 12 hours in ms
-const now = Date.now()
+const route=useRoute()
+const forceReload = ref(route.query.reload||false)
 
-onMounted(()=>{
-
+onMounted(async ()=>{
+  const now = Date.now()
   const localDishesRaw = localStorage.getItem('dishes')
   const localConfigRaw = localStorage.getItem('config')
   const lastUpdateRaw = localStorage.getItem('lastUpdate')
 
-
   let shouldFetch = true
-  
-  if (localDishesRaw && lastUpdateRaw && localConfigRaw) {
+  if (!forceReload.value && localDishesRaw && lastUpdateRaw && localConfigRaw) {
     const lastUpdate = parseInt(lastUpdateRaw)
     if (now - lastUpdate < timeout) {
       try {
@@ -22,31 +21,33 @@ onMounted(()=>{
         config.value = JSON.parse(localConfigRaw)
         shouldFetch = false
       } catch (e) {
-        // fallback to fetch if parse fails
-        console.log(e)
+        console.error("Cache parse error", e)
         shouldFetch = true
       }
     }
   }
   
   if (shouldFetch) {
-
-    console.log("%c[DEBUG] Api call","color:orangered; font-size:3rem")
-    callOnce('dishes', async () => {
-      const _data = await $fetch('/api/dishes')
-      const _config = await $fetch('/api/config')
-      dishes.value = _data
-      config.value = _config
-      localStorage.setItem('dishes', JSON.stringify(_data))
-      localStorage.setItem('config', JSON.stringify(_config))
+    try {
+      const [data, cfg] = await Promise.all([
+        $fetch('/api/dishes'),
+        $fetch('/api/config')
+      ])
+      dishes.value = data
+      config.value = cfg
+      localStorage.setItem('dishes', JSON.stringify(data))
+      localStorage.setItem('config', JSON.stringify(cfg))
       localStorage.setItem('lastUpdate', now.toString())
-    })
+    } catch (e) {
+      console.error("Fetch error", e)
+    }
   }
-  console.log("DISHES",dishes.value);
+
+  console.log("[DISHES]",dishes.value)
 })
 
 
-</script>bebas
+</script> 
 
 <template>
   <div v-if="dishes " class="p-8">

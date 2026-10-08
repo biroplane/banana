@@ -4,7 +4,7 @@ export default defineEventHandler(async (_event) => {
   const config = useRuntimeConfig();
   const AIRTABLE_API_TOKEN = config.AIRTABLE_API_TOKEN;
   const AIRTABLE_BASE = config.AIRTABLE_BASE || config.public.AIRTABLE_BASE;
-  const AIRTABLE_TABLE = 'Config';
+  const AIRTABLE_TABLE = 'tblkZEfq3JXprNFcv';
 
   const base = new Airtable({ apiKey: AIRTABLE_API_TOKEN }).base(AIRTABLE_BASE);
 
